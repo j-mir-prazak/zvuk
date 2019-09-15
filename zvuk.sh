@@ -21,9 +21,9 @@ function terminate {
 
 echo "setting volumes."
 cards=$(cat /proc/asound/cards | grep USBSC* | sed -r 's/ ([[:digit:]]).*/\1/');
-for i in $cards;
+for i in $cards; do
 	echo "setting volume for card $i."
-	do amixer -c$i set 'Speaker' 85%;
+	amixer -c$i set 'Speaker' 85%;
 done
 
 
