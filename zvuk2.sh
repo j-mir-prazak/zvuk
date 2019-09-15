@@ -31,6 +31,11 @@ trap terminate SIGINT
 # trap 'echo int; kill -SIGINT $PROC1' SIGINT
 trap terminate SIGTERM
 
+echo "APLAY -l"
+aplay -l
+echo "APLAY -L"
+aplay -L
+
 function looping {
 	while true; do
 
@@ -39,15 +44,11 @@ function looping {
 
 	  echo -e "\e[34m"
 	  echo "-----------------------------"
-	  echo "       Starting nodejs.      "
+	  echo "       Starting mpv.      "
 	  echo "-----------------------------"
 	  echo ""
 	  echo ""
 
-		echo "APLAY -l"
-		aplay -l
-		echo "APLAY -L"
-		aplay -L
 
 		PROC2=""
 
