@@ -51,6 +51,8 @@ esac
 
 #index=1
 
+pause="--pause=yes"
+
 case $index in
 1)
   ad=--audio-device="alsa/MixerUSBSC1"
@@ -66,6 +68,7 @@ case $index in
   ;;
 5)
   ad=--audio-device="alsa/usbcluster"
+  pause="--pause=no"
   ;;
 *)
   ad=""
@@ -77,7 +80,7 @@ echo $af
 #sleep by index
 sleep $(($1))
 
-mpv --pause=yes --alsa-ignore-chmap --alsa-non-interleaved --cache-secs=5 --demuxer-readahead-secs=5 --audio-buffer=0.5 --input-file=./bangs/bang$1 -input-ipc-server=./bangs/soc-bang$1 $ad $af -msg-level=ao/alsa=debug "$file" &
+mpv $pause --alsa-ignore-chmap --alsa-non-interleaved --cache-secs=5 --demuxer-readahead-secs=5 --audio-buffer=0.5 --input-file=./bangs/bang$1 -input-ipc-server=./bangs/soc-bang$1 $ad $af -msg-level=ao/alsa=debug "$file" &
 
 PROC1=$!
 
