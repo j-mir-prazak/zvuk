@@ -1,0 +1,154 @@
+
+pcm.MixerUSBSC1  {
+        type dmix
+        ipc_key 1027
+        slave {
+                pcm "hw:CARD=USBSC1,DEV=0"
+                #period_time 250000
+                #period_size 12000
+                #period_bytes 24000
+                #periods 4
+
+                #buffer_time 500000
+                #buffer_size 24000
+                #buffer_bytes 48000
+
+                format S24_3LE
+                #format S16_LE
+        }
+        bindings {
+                0 0
+                1 1
+        }
+}
+
+pcm.MixerUSBSC2  {
+        type dmix
+        ipc_key 1028
+        slave {
+                pcm "hw:CARD=USBSC2,DEV=0"
+                #period_time 250000
+                #period_size 12000
+                #period_bytes 24000
+                #periods 4
+
+                #buffer_time 500000
+                #buffer_size 24000
+                #buffer_bytes 48000
+
+                format S24_3LE
+                #format S16_LE
+        }
+        bindings {
+                0 0
+                1 1
+        }
+}
+
+pcm.MixerUSBSC3  {
+        type dmix
+        ipc_key 1029
+        slave {
+                pcm "hw:CARD=USBSC3,DEV=0"
+                #period_time 250000
+                #period_size 12000
+                #period_bytes 24000
+                #periods 4
+
+                #buffer_time 500000
+                #buffer_size 24000
+                #buffer_bytes 48000
+
+                format S24_3LE
+                #format S16_LE
+        }
+        bindings {
+                0 0
+                1 1
+        }
+}
+
+pcm.MixerUSBSC4  {
+        type dmix
+        ipc_key 1030
+        slave {
+                pcm "hw:CARD=USBSC4,DEV=0"
+                #period_time 250000
+                #period_size 12000
+                #period_bytes 24000
+                #periods 4
+
+                #buffer_time 500000
+                #buffer_size 24000
+                #buffer_bytes 48000
+
+                format S24_3LE
+                #format S16_LE
+        }
+        bindings {
+                0 0
+                1 1
+        }
+}
+
+ctl.MixerUSBSC1 {
+    type hw;
+    card "hw:CARD=USBSC1,DEV=0";
+}
+
+ctl.MixerUSBSC2 {
+    type hw;
+    card "hw:CARD=USBSC2,DEV=0";
+}
+
+ctl.MixerUSBSC3 {
+    type hw;
+    card "hw:CARD=USBSC3,DEV=0";
+}
+
+ctl.MixerUSBSC4 {
+    type hw;
+    card "hw:CARD=USBSC4,DEV=0";
+}
+
+
+## multiplex
+
+
+pcm.!multi {
+    type multi;
+    slaves.a.pcm "MixerUSBSC1";
+    slaves.a.channels 2;
+    slaves.b.pcm "MixerUSBSC2";
+    slaves.b.channels 2;
+    slaves.c.pcm "MixerUSBSC3";
+    slaves.c.channels 2;
+    slaves.d.pcm "MixerUSBSC4";
+    slaves.d.channels 2;
+    bindings.0 { slave a; channel 0; }
+    bindings.1 { slave a; channel 1; }
+    bindings.2 { slave b; channel 0; }
+    bindings.3 { slave b; channel 1; }
+    bindings.4 { slave c; channel 0; }
+    bindings.5 { slave c; channel 1; }
+    bindings.6 { slave d; channel 0; }
+    bindings.7 { slave d; channel 1; }
+
+}
+
+pcm.!usbcluster {
+
+    type route;
+    slave.pcm "multi";
+    slave.channels 8;
+
+    ttable.0.0 1;
+    ttable.1.1 1;
+    ttable.2.2 1;
+    ttable.3.3 1;
+    ttable.4.4 1;
+    ttable.5.5 1;
+    ttable.6.6 1;
+    ttable.7.7 1;
+
+}
