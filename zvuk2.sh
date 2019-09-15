@@ -42,6 +42,8 @@ function looping {
 		trap 'kill -SIGINT $PROC2; kill -SIGTERM $PROC2; break' SIGINT
 		trap 'kill -SIGINT $PROC2; kill -SIGTERM $PROC2; break' SIGTERM
 
+		./clean_up.sh
+
 	  echo -e "\e[34m"
 	  echo "-----------------------------"
 	  echo "       Starting mpv.      "

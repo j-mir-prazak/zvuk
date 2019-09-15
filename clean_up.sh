@@ -1,6 +1,6 @@
 #!/bin/bash
 
-instances=4
+instances=5
 rm -rf ./bangs/*
 for i in $(seq 1 $instances); do mkfifo ./bangs/bang$i; done
 
