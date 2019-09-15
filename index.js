@@ -12,7 +12,8 @@ process.on('SIGINT',  function(){
 	 console.log('\nCLOSING: [SIGINT]');
 	 for (var i = 0; i < pids.length; i++) {
 		console.log("KILLING: " + pids[i])
-		process.kill(-pids[i])
+		console.log(process.kill( pids[i], 0 ))
+		if ( process.kill( pids[i], 0 ) ) process.kill( pids[i] )
  	}
 	 process.exit(0);
  })

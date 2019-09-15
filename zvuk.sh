@@ -22,7 +22,6 @@ function terminate {
 trap terminate SIGINT
 # trap 'echo int; kill -SIGINT $PROC1' SIGINT
 trap terminate SIGTERM
-PROC2=""
 
 function looping {
 	while true; do
