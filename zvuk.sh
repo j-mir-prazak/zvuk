@@ -9,10 +9,6 @@ function terminate {
 	echo -e "KILLING SUB $PROC1"
 	kill -SIGTERM $PROC1
 	echo -e "\e[33m\n\n"
-	kill -SIGINT $PROC2
-	echo -e "KILLING SUB2 $PROC2"
-	kill -SIGTERM $PROC2
-	echo -e "\e[33m\n\n"
 	echo -e "-----------------------------"
 	echo -e "       VALVE TERMINATED.     "
 	echo -e "-----------------------------"
