@@ -19,6 +19,12 @@ function terminate {
 	kill -SIGTERM $$
 	}
 
+cards=$(cat /proc/asound/cards | grep USBSC* | sed -r 's/ ([[:digit:]]).*/\1/');
+for i in $cards;
+	do amixer -c$i set 'Speaker' 85%;
+done
+
+
 trap terminate SIGINT
 # trap 'echo int; kill -SIGINT $PROC1' SIGINT
 trap terminate SIGTERM

@@ -21,7 +21,7 @@ function list_through_files {
 
 		if [ -d "$a" ] ; then
 			if [ "$a" == "$folder/assets" ] ; then
-				update_assets "$a"
+				 "$a"
 			else
 				echo "COPING $a"
 				gcp --force --recursive "$a" "./"
