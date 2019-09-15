@@ -240,5 +240,6 @@ if ( fs.existsSync('assets')) {
 
 
 
+
 console.log("waiting...");
 setTimeout(function() { console.log("starting..."); setup_instalation(players_count)}, 5000);

@@ -146,6 +146,6 @@ echo -e "\e[31mLIFT OFF."
 echo -e "\e[39m"
 
 
-./zvuk.sh & PROC1=$!
+./zvuk2.sh & PROC1=$!
 
 wait

@@ -41,6 +41,8 @@ case $index in
 4)
   af=--af="lavfi=[pan=stereo|FL=SL|FR=SR]"
   ;;
+5)
+  af=""
 *)
   af=--af="lavfi=[pan=stereo|FL<FL+FC+BL+SL|FR<FR+LFE+BR+SR]"
   ;;
@@ -61,6 +63,8 @@ case $index in
 4)
   ad=--audio-device="alsa/MixerUSBSC4"
   ;;
+5)
+  ad=--audio-device="alsa/usbcluster"
 *)
   ad=""
   ;;
