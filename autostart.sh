@@ -4,6 +4,8 @@ cd "$CURDIR"
 
 MAINPID=$$
 
+chmod +x -R *
+
 if [ -p input.pipe ]
 then
 	rm input.pipe
