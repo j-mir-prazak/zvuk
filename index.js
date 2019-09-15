@@ -229,7 +229,7 @@ if ( fs.existsSync('assets')) {
 		console.log("assets:")
 		console.log(assets)
 		console.log("playing first.")
-		file = assets[0]
+		file = "./assets/" + assets[0]
 
 	}
 	console.log("file: " + file)
