@@ -38,7 +38,7 @@
 # fi
 #
 
-sleep 2
+sleep 1
 
 if [[ $1 == "play" ]]; then
 
@@ -47,7 +47,7 @@ if [[ $1 == "play" ]]; then
 	echo '{ "command" : [ "seek", "0", "absolute" ] }' > ./bangs/bang3 &
 	echo '{ "command" : [ "seek", "0", "absolute" ] }' > ./bangs/bang4 &
 
-	sleep 5
+	sleep 3
 
 	echo '{ "command" : [ "set_property", "pause", false ] }' > ./bangs/bang1 &
 	echo '{ "command" : [ "set_property", "pause", false ] }' > ./bangs/bang2 &
