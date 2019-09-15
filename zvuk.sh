@@ -19,8 +19,10 @@ function terminate {
 	kill -SIGTERM $$
 	}
 
+echo "setting volumes."
 cards=$(cat /proc/asound/cards | grep USBSC* | sed -r 's/ ([[:digit:]]).*/\1/');
 for i in $cards;
+	echo "setting volume for card $i."
 	do amixer -c$i set 'Speaker' 85%;
 done
 
