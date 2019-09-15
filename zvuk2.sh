@@ -35,6 +35,7 @@ echo "APLAY -l"
 aplay -l
 echo "APLAY -L"
 aplay -L
+echo ""
 
 function looping {
 	while true; do
@@ -42,7 +43,9 @@ function looping {
 		trap 'kill -SIGINT $PROC2; kill -SIGTERM $PROC2; break' SIGINT
 		trap 'kill -SIGINT $PROC2; kill -SIGTERM $PROC2; break' SIGTERM
 
+		echo "clean up."
 		./clean_up.sh
+		echo ""
 
 	  echo -e "\e[34m"
 	  echo "-----------------------------"
@@ -55,12 +58,14 @@ function looping {
 		PROC2=""
 
 		file=$(node index2.js)
+
 		./start_mpv.sh 5 "$file" &
+
 		PROC2=$!
 		wait
 		echo ""
 	  counter=$(expr $counter + 1)
-	  echo "Error. Retrying. Rerun #$counter."
+	  echo "Rinse. And repeat. Rerun #$counter."
 	  echo  ""
 	  sleep 1
 	done
