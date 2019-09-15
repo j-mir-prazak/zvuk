@@ -21,6 +21,11 @@ sleep 1;
 
 index=$1
 
+file="8channel-long.flac"
+if [[ ! -z $2 ]]; then
+  file=$2
+fi
+
 #index=5
 
 case $index in
@@ -66,7 +71,7 @@ echo $af
 #sleep by index
 sleep $(($1+$1))
 
-mpv --pause=yes --alsa-ignore-chmap --alsa-non-interleaved --cache-secs=5 --demuxer-readahead-secs=5 --audio-buffer=0.5 8channel-long.flac --input-file=./bangs/bang$1 -input-ipc-server=./bangs/soc-bang$1 $ad $af -msg-level=ao/alsa=debug &
+mpv --pause=yes --alsa-ignore-chmap --alsa-non-interleaved --cache-secs=5 --demuxer-readahead-secs=5 --audio-buffer=0.5 --input-file=./bangs/bang$1 -input-ipc-server=./bangs/soc-bang$1 $ad $af -msg-level=ao/alsa=debug "$file" &
 
 PROC1=$!
 

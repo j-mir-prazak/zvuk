@@ -208,5 +208,37 @@ function setup_instalation ( instances ) {
 	}
 
 }
+
+var file=""
+var assets = new Array();
+
+if ( fs.existsSync('assets')) {
+
+	console.log("assets folder exists.")
+
+	assets = fs.readdirSync('assets')
+
+	if ( assets.length < 1) {
+
+		console.log("no assets. default playback.")
+		file = "8channel-long.flac."
+	}
+
+	else {
+
+		console.log("assets:")
+		console.log(assets)
+		console.log("playing first.")
+		file = assets[0]
+
+	}
+	console.log("file: " + file)
+
+}
+
+
+
+
+
 console.log("waiting...");
 setTimeout(function() { console.log("starting..."); setup_instalation(players_count)}, 5000);
