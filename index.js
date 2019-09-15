@@ -36,7 +36,7 @@ function cleanPID(pid) {
 
 function mpv_player(index) {
 
-	var mpv = spawner.spawn("bash", new Array("-c", "./start_mpv.sh " + index), {detached: false})
+	var mpv = spawner.spawn("bash", new Array("-c", "./start_mpv.sh " + index + " " + file), {detached: false})
 	var decoder = new StringDecoder('utf-8')
 
 	pids.push(mpv["pid"])
