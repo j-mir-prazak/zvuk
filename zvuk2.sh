@@ -49,7 +49,7 @@ function looping {
 
 	  echo -e "\e[34m"
 	  echo "-----------------------------"
-	  echo "       Starting mpv.      "
+	  echo "         Starting mpv.       "
 	  echo "-----------------------------"
 	  echo ""
 	  echo ""
